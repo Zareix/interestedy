@@ -10,7 +10,16 @@ export const interestingThingsRouter = createTRPCRouter({
       },
     });
   }),
-
+  get: protectedProcedure
+    .input(z.string().optional())
+    .query(({ ctx, input }) => {
+      return ctx.prisma.interestingThing.findFirst({
+        where: {
+          id: input,
+          userId: ctx.session.user.id,
+        },
+      });
+    }),
   create: protectedProcedure
     .input(
       z.object({
@@ -30,4 +39,11 @@ export const interestingThingsRouter = createTRPCRouter({
         },
       });
     }),
+  delete: protectedProcedure.input(z.string()).mutation(({ ctx, input }) => {
+    return ctx.prisma.interestingThing.delete({
+      where: {
+        id: input,
+      },
+    });
+  }),
 });

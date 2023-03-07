@@ -27,7 +27,7 @@ const Index: NextPage = () => {
 
   return (
     <Layout>
-      <div className="mt-6 grid place-content-center">
+      <div className="grid place-content-center">
         <form onSubmit={handleSubmit(onSubmit)} className="grid">
           <div className="mt-3 flex flex-col">
             <label className="font-semibold" htmlFor="title">

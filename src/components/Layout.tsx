@@ -22,7 +22,11 @@ const Layout = ({ children }: Props) => {
       <header className={`sticky top-0 flex w-full border-b ${font.className}`}>
         <Navbar />
       </header>
-      <main className={`${font.className} overflow-hidden`}>{children}</main>
+      <main
+        className={`${font.className} container mx-auto overflow-hidden pt-4`}
+      >
+        {children}
+      </main>
     </>
   );
 };
